@@ -1,5 +1,6 @@
 package com.sharing.overload.service;
 
+import com.sharing.overload.entity.AppPost;
 import com.sharing.overload.entity.AppUser;
 import com.sharing.overload.entity.AppUserBoard;
 import com.sharing.overload.repository.AppUserRepository;
@@ -7,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.validation.constraints.NotNull;
 
 @Service
 public class AppUserService {
@@ -30,6 +33,7 @@ public class AppUserService {
         }
         AppUser user = new AppUser(AppUser.Role.REGULAR_USER, userName);
         AppUserBoard board = new AppUserBoard();
+        board.setHeader("Tablica użytkownika " + user.getUsername());
         boardService.save(board);
         user.setAppUserBoard(board);
         repository.save(user);
@@ -37,5 +41,11 @@ public class AppUserService {
 
     public AppUser findAppUserByUsername(String userName) {
         return repository.findAppUserByUsername(userName);
+    }
+
+    public void addPostToTheBoard(String username, @NotNull AppPost post) {
+        AppUser user = findAppUserByUsername(username);
+        user.addPostToTheBoard(post);
+        repository.save(user);
     }
 }

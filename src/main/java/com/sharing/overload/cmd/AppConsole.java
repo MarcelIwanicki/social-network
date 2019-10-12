@@ -1,5 +1,6 @@
 package com.sharing.overload.cmd;
 
+import com.sharing.overload.entity.AppPost;
 import com.sharing.overload.service.AppFriendsService;
 import com.sharing.overload.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,10 @@ public class AppConsole implements CommandLineRunner {
         userService.addNewRegularUser("Stonoga");
         userService.addNewRegularUser("Nowak");
 
-        friendsService.makeFriends(userService.findAppUserByUsername("Kowalski"), userService.findAppUserByUsername("Stonoga"));
-        friendsService.makeFriends(userService.findAppUserByUsername("Nowak"), userService.findAppUserByUsername("Kowalski"));
+        friendsService.makeFriends("Kowalski", "Stonoga");
+        friendsService.makeFriends("Kowalski", "Nowak");
+
+        userService.addPostToTheBoard("Kowalski", new AppPost( "Kowalski", "Siała baba mak"));
+        userService.addPostToTheBoard("Kowalski", new AppPost( "Kowalski", "Nie siała baba maku"));
     }
 }

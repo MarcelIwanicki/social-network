@@ -14,7 +14,18 @@ public class AppFriendsService {
     @Autowired
     private AppFriendsRepository repository;
 
+    @Autowired
+    private AppUserService userService;
+
     public void makeFriends(@NotNull AppUser firstUser, @NotNull AppUser secondUser) {
+        repository.save(new AppFriends(firstUser.getId(), secondUser.getId()));
+        repository.save(new AppFriends(secondUser.getId(), firstUser.getId()));
+    }
+
+    public void makeFriends(String firstUsername, String secondUsername) {
+        AppUser firstUser = userService.findAppUserByUsername(firstUsername);
+        AppUser secondUser = userService.findAppUserByUsername(secondUsername);
+
         repository.save(new AppFriends(firstUser.getId(), secondUser.getId()));
         repository.save(new AppFriends(secondUser.getId(), firstUser.getId()));
     }

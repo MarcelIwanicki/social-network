@@ -6,9 +6,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "app_user_board")
+@Table(name = "app_user_boards")
 @AllArgsConstructor
 @NoArgsConstructor
 public class AppUserBoard {
@@ -24,5 +27,13 @@ public class AppUserBoard {
     private AppUser appUser;
 
     @Getter @Setter
-    private String content;
+    private String header;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "board")
+    private List<AppPost> appPosts = new ArrayList<>();
+
+    public void addPost(@NotNull AppPost post) {
+        appPosts.add(post);
+        post.setBoard(this);
+    }
 }

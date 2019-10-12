@@ -6,9 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "app_user")
+@Table(name = "app_users")
 @AllArgsConstructor
 @NoArgsConstructor
 public class AppUser {
@@ -35,12 +36,16 @@ public class AppUser {
     private String username;
 
     @OneToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name="app_user_board", referencedColumnName = "id")
+    @JoinColumn(name="app_user_boards", referencedColumnName = "id")
     @Getter @Setter
     private AppUserBoard appUserBoard;
 
     public AppUser(Role role, String username) {
         this.role = role;
         this.username = username;
+    }
+
+    public void addPostToTheBoard(@NotNull AppPost post) {
+        appUserBoard.addPost(post);
     }
 }
