@@ -1,5 +1,6 @@
 package com.sharing.overload.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,6 +38,10 @@ public class AppUser {
     @Getter @Setter
     @Column(name = "username")
     private String username;
+
+    @JsonIgnore
+    @Getter
+    private String password;
 
     @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name="app_user_boards", referencedColumnName = "id")
