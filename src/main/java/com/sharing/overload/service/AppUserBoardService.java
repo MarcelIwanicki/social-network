@@ -14,4 +14,8 @@ public class AppUserBoardService {
     public void save(AppUserBoard board) {
         repository.save(board);
     }
+
+    public AppUserBoard findBoardByUsername(String username) {
+        return repository.findAppUserBoardByAppUser_Username(username);
+    }
 }

@@ -1,7 +1,10 @@
 package com.sharing.overload.cmd;
 
 import com.sharing.overload.entity.AppPost;
+import com.sharing.overload.repository.AppUserBoardRepository;
 import com.sharing.overload.service.AppFriendsService;
+import com.sharing.overload.service.AppPostService;
+import com.sharing.overload.service.AppUserBoardService;
 import com.sharing.overload.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -16,6 +19,12 @@ public class AppConsole implements CommandLineRunner {
     @Autowired
     private AppFriendsService friendsService;
 
+    @Autowired
+    private AppUserBoardService boardService;
+
+    @Autowired
+    private AppPostService postService;
+
     @Override
     public void run(String... args) throws Exception {
 
@@ -26,9 +35,10 @@ public class AppConsole implements CommandLineRunner {
         friendsService.makeFriends("Kowalski", "Stonoga");
         friendsService.makeFriends("Kowalski", "Nowak");
 
-        AppPost post = new AppPost( "Kowalski", "Siała baba mak");
-        userService.addPostToTheBoard("Kowalski", post);
-        userService.addPostToTheBoard("Kowalski", new AppPost( "Kowalski", "Nie siała baba maku"));
+        AppPost post = new AppPost(boardService.findBoardByUsername("Kowalski").getId(), "Kowalski", "Siała baba mak");
+        AppPost secondPost = new AppPost(boardService.findBoardByUsername("Kowalski").getId(), "Kowalski", "Nie siała baba maku");
+        postService.save(post);
+        postService.save(secondPost);
 
     }
 }

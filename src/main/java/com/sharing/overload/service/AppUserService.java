@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Service
 public class AppUserService {
@@ -43,9 +44,7 @@ public class AppUserService {
         return repository.findAppUserByUsername(userName);
     }
 
-    public void addPostToTheBoard(String username, @NotNull AppPost post) {
-        AppUser user = findAppUserByUsername(username);
-        user.addPostToTheBoard(post);
-        repository.save(user);
+    public List<AppUser> getAllUsers() {
+        return repository.findAll();
     }
 }
