@@ -36,4 +36,23 @@ public class AppUserBoard {
         appPosts.add(post);
         post.setBoard(this);
     }
+
+    public AppPost getPostById(long id) {
+
+        int low = 0;
+        int high = appPosts.size()-1;
+        int mid = (low + high) / 2;
+
+        while (low < high) {
+            if (appPosts.get(mid).getId() == id) {
+                return appPosts.get(mid);
+            } else if (id < appPosts.get(mid).getId()) {
+                high = mid;
+            } else if (id > appPosts.get(mid).getId()) {
+                low = mid;
+            }
+        }
+
+        return null;
+    }
 }

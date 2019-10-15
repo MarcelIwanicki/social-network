@@ -5,14 +5,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
-import java.util.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "app_posts")
+@Table(name = "app_post_comments")
 @NoArgsConstructor
 @AllArgsConstructor
-public class AppPost {
+public class AppPostComment {
 
     @Id
     @GeneratedValue
@@ -20,22 +22,13 @@ public class AppPost {
     private long id;
 
     @Getter @Setter
-    private String username;
+    private long appPostId;
 
     @Getter @Setter
     private String content;
 
-    @Lob
-    @Getter @Setter
-    private byte[] image;
-
-    @ManyToOne
-    @JoinColumn(name = "board_id")
-    @Setter
-    private AppUserBoard board;
-
-    public AppPost(String username, String content) {
-        this.username = username;
+    public AppPostComment(long appPostId, String content) {
+        this.appPostId = appPostId;
         this.content = content;
     }
 }

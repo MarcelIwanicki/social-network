@@ -26,7 +26,9 @@ public class AppConsole implements CommandLineRunner {
         friendsService.makeFriends("Kowalski", "Stonoga");
         friendsService.makeFriends("Kowalski", "Nowak");
 
-        userService.addPostToTheBoard("Kowalski", new AppPost( "Kowalski", "Siała baba mak"));
+        AppPost post = new AppPost( "Kowalski", "Siała baba mak");
+        userService.addPostToTheBoard("Kowalski", post);
         userService.addPostToTheBoard("Kowalski", new AppPost( "Kowalski", "Nie siała baba maku"));
+
     }
 }
