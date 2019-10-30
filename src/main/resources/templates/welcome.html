@@ -8,6 +8,148 @@
     <link rel="stylesheet" type="text/css" href="css/welcome.css">
     <link rel="stylesheet" type="text/css" href="css/welcome-media.css">
 
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <title>Sharing overload</title>
+
 </head>
 <body>
+  <!-- Navigation -->
+  <nav id="navigation" class="navbar navbar-dark navbar-expand-md bg-dark">
+    <img class="navbar-brand" src="img/logo.svg" alt=" " width="50px" height="50px">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="#">Info</a>
+            <a class="dropdown-item" href="#">Customize</a>
+            <a class="dropdown-item" href="#">Log out</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Create post</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search for users" aria-label="Search">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <main role="main" class="container bg-1">
+    <div class="row">
+      <div class="col-sm-2 buttons-sidebar">
+        <button type="button" class="w-100 ml-auto mt-5 row btn">
+          <img src="img/user.svg" width="30px" height="30px">
+          <p>Username goes here</p>
+        </button>
+
+        <div class="w-100 ml-auto mb-5 row btn-group-vertical">
+          <button type="button" class="btn btn-outline-dark">Account</button>
+          <button type="button" class="btn btn-outline-dark">Friends</button>
+          <button type="button" class="btn btn-outline-dark">Other users</button>
+        </div>
+        <div class="w-100 ml-auto mb-5 row btn-group-vertical">
+          <button type="button" class="btn btn-outline-secondary">Groups</button>
+          <button type="button" class="btn btn-outline-secondary">All posts</button>
+          <button type="button" class="btn btn-outline-secondary">Chats</button>
+          <button type="button" class="btn btn-outline-secondary">Settings</button>
+          <button type="button" class="btn btn-outline-secondary">About project</button>
+
+        </div>
+      </div>
+
+      <div class="col-sm-8 posts">
+      <div id="hello-jumbotron" class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Hello, </h1>
+          <p>Welcome to my hobby project, sharing-overload, which is semi-functioning social network written in java, html, js, css. Feel free to explore.</p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">Customize your account &raquo;</a></p>
+        </div>
+      </div>
+
+      <div class="mb-3 list-group-item flex-column align-items-start">
+        <h5>Create post</h5>
+        <hr>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <div class="row mt-1">
+          <div class="col-sm-6"></div>
+          <div class="col-sm-6 row">
+            <label for="image-upload" class="label-image-upload col-sm-8 btn btn-light"><img src="img/picture.svg" width="40px" height="40px"> Upload image</label>
+            <input id="image-upload" type="file" class="form-control-file col-sm-8 btn btn-light">
+            <button type="button" class="col-sm-4 btn btn-primary">Post</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-group">
+        <a href="#" class="mb-3 list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Username goes here</h5>
+            <small>3 days ago</small>
+          </div>
+          <p class="mb-1">Content goes here</p>
+          <img src="img/breathtaking.jpg" class="row ml-auto mr-auto w-75 mw-100" alt=" ">
+          <small>Post id</small>
+        </a>
+
+        <a href="#" class="mb-3 list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Username goes here</h5>
+            <small>3 days ago</small>
+          </div>
+          <p class="mb-1">Content goes here</p>
+          <img src="img/mark.png" class="row ml-auto mr-auto w-75 mw-100" alt=" ">
+          <small>Post id</small>
+        </a>
+      </div>
+      </div>
+
+      <div class="col-sm-2 active-users-sidebar">
+        <div class="container position-absolute">
+          <div class="row mt-5 alert">
+            Active users
+          </div>
+          <button type="button" class="row mt-1 btn btn-light btn-lg btn-block btn-active-user"><img src="img/user.svg" width="20px" height="20px">  Username</button>
+          <button type="button" class="row mt-1 btn btn-light btn-lg btn-block btn-active-user"><img src="img/user.svg" width="20px" height="20px">  Username</button>
+          <button type="button" class="row mt-1 btn btn-light btn-lg btn-block btn-active-user"><img src="img/user.svg" width="20px" height="20px">  Username</button>
+          <button type="button" class="row mt-1 btn btn-light btn-lg btn-block btn-active-user"><img src="img/user.svg" width="20px" height="20px">  Username</button>
+          <button type="button" class="row mt-1 btn btn-light btn-lg btn-block btn-active-user"><img src="img/user.svg" width="20px" height="20px">  Username</button>
+          <button type="button" class="row mt-1 btn btn-light btn-lg btn-block btn-active-user"><img src="img/user.svg" width="20px" height="20px">  Username</button>
+          <button type="button" class="row mt-1 btn btn-light btn-lg btn-block btn-active-user"><img src="img/user.svg" width="20px" height="20px">  Username</button>
+
+          <div class="row mt-5 alert">
+            Active groups
+          </div>
+          <button type="button" class="row mt-1 btn btn-light btn-block btn-active-user"><img src="img/team.svg" width="20px" height="20px">  Group name</button>
+          <button type="button" class="row mt-1 btn btn-light btn-block btn-active-user"><img src="img/team.svg" width="20px" height="20px">  Group name</button>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center">
+    <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></div>
+    <p>&copy; Marcel Iwanicki 2019</p>
+  </footer>
+
+  <!-- JQUERY -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+  <!-- BOOTSTRAP -->
+  <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
 </body>

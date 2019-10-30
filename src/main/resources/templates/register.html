@@ -20,9 +20,6 @@
 <body>
 <!-- Navigation -->
 <nav id="navigation" class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-        <img src="img/logo.png" class="logo-image d-inline-block align-top" alt="">
-    </a>
 </nav>
 
 <!-- Main -->
@@ -30,14 +27,14 @@
     <!-- Login -->
     <div class="card text-center" data-aos="fade-up" data-aos-duration="1500">
         <div class="card-body">
-            <h3 class="title">REGISTER</h3>
+            <h3 class="title">Register</h3>
             <form class="input-group mb-3" th:action="@{/register}" th:object="${userData}" method="post">
 
                 <p>Fill the fields: </p>
-                <input th:field="*{username}" type="text" class="form-control" id="username" name="username" placeholder="username" aria-label="username" aria-describedby="basic-addon1">
-                <input th:field="*{password}" type="password" class="form-control" id="password" name="password" placeholder="password" aria-label="password" aria-describedby="basic-addon1">
+                <input th:field="*{username}" type="text" class="form-control w-75" id="username" name="username" placeholder="username" aria-label="username" aria-describedby="basic-addon1">
+                <input th:field="*{password}" type="password" class="form-control w-75" id="password" name="password" placeholder="password" aria-label="password" aria-describedby="basic-addon1">
 
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="submit" class="btn btn-primary w-50">Register</button>
             </form>
         </div>
     </div>

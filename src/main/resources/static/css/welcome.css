@@ -1,0 +1,38 @@
+body {
+  background: #f2f2f2 !important;
+}
+
+#navigation {
+    background-color: rgb(59,89,152) !important;
+}
+
+#hello-jumbotron {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#a0d8ef+0,feffff+1,ddf1f9+83 */
+  background: #a0d8ef; /* Old browsers */
+  background: -moz-linear-gradient(top,  #a0d8ef 0%, #feffff 1%, #ddf1f9 83%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #a0d8ef 0%,#feffff 1%,#ddf1f9 83%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #a0d8ef 0%,#feffff 1%,#ddf1f9 83%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a0d8ef', endColorstr='#ddf1f9',GradientType=0 ); /* IE6-9 */
+
+}
+
+.buttons-sidebar {
+  border-right: 2px solid #eaeaea;
+}
+
+.active-users-sidebar {
+  border-left: 2px solid #eaeaea;
+}
+
+.btn-active-user {
+  font-size: 16px !important;
+  background: none !important;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.label-image-upload {
+  cursor: pointer;
+}

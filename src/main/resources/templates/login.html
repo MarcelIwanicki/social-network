@@ -20,19 +20,17 @@
 <body>
 <!-- Navigation -->
 <nav id="navigation" class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-    </a>
 </nav>
 
 <main role="main" class="container bg-1">
     <!-- Login -->
     <div class="card text-center" data-aos="fade-up" data-aos-duration="1500">
         <div class="card-body">
-            <h3 class="title">LOG IN</h3>
+            <h3 class="title">Please log in</h3>
             <form class="input-group mb-3" th:action="@{/login}" method="post">
-                <input type="text" class="form-control" id="username" name="username" placeholder="username" aria-label="username" aria-describedby="basic-addon1">
-                <input type="password" class="form-control" id="password" name="password" placeholder="password" aria-label="password" aria-describedby="basic-addon1">
-                <button type="submit" class="btn btn-primary">LOG IN</button>
+                <input type="text" class="form-control w-75" id="username" name="username" placeholder="username" aria-label="username" aria-describedby="basic-addon1">
+                <input type="password" class="form-control w-75" id="password" name="password" placeholder="password" aria-label="password" aria-describedby="basic-addon1">
+                <button type="submit" class="btn btn-primary w-50">LOG IN</button>
             </form>
         </div>
     </div>
