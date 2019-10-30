@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AppUserBoardRepository extends JpaRepository<AppUserBoard, Long> {
+
+    AppUserBoard findAppUserBoardByAppUser_Username(String username);
 }
