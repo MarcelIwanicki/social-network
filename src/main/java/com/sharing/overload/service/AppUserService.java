@@ -54,4 +54,8 @@ public class AppUserService {
     public List<AppUser> getAllUsers() {
         return repository.findAll();
     }
+
+    public AppUser findByUsername(String currentUserName) {
+        return repository.findAppUserByUsername(currentUserName);
+    }
 }
