@@ -40,7 +40,7 @@ public class AppUser {
     private String username;
 
     @JsonIgnore
-    @Getter
+    @Getter @Setter
     private String password;
 
     @OneToOne(cascade = CascadeType.MERGE)

@@ -27,9 +27,9 @@ public class AppConsole implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        userService.addNewRegularUser("Kowalski");
-        userService.addNewRegularUser("Stonoga");
-        userService.addNewRegularUser("Nowak");
+        userService.addNewRegularUser("Kowalski", "1234");
+        userService.addNewRegularUser("Stonoga", "abcdefg");
+        userService.addNewRegularUser("Nowak", "stol");
 
         friendsService.makeFriends("Kowalski", "Stonoga");
         friendsService.makeFriends("Kowalski", "Nowak");
