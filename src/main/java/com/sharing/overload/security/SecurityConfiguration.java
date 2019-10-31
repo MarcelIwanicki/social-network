@@ -53,7 +53,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").hasAnyAuthority("REGULAR_USER", "ADMIN").and().formLogin().loginPage("/login")
         .and()
                 .authorizeRequests()
-                .antMatchers("/profile/*").hasAnyAuthority("REGULAR_USER", "ADMIN").and().formLogin().loginPage("/login");
+                .antMatchers("/profile/*").hasAnyAuthority("REGULAR_USER", "ADMIN").and().formLogin().loginPage("/login")
+        .and()
+                .authorizeRequests()
+                .antMatchers("/friends/*").hasAnyAuthority("REGULAR_USER", "ADMIN").and().formLogin().loginPage("/login");
+
 
         http.formLogin().successHandler(appAuthenticationHandler);
         http.logout().logoutSuccessHandler(appLogoutHandler);

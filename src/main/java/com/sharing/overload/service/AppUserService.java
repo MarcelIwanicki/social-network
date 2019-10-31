@@ -58,4 +58,8 @@ public class AppUserService {
     public AppUser findByUsername(String currentUserName) {
         return repository.findAppUserByUsername(currentUserName);
     }
+
+    public AppUser findAppUserById(long id) {
+        return repository.findAppUserById(id);
+    }
 }
