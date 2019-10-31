@@ -4,6 +4,8 @@ import com.sharing.overload.entity.AppFriends;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface AppFriendsRepository extends JpaRepository<AppFriends, Long> {
 }

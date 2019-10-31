@@ -35,7 +35,7 @@ public class AppUrlAuthenticationSuccessHandler implements AuthenticationSuccess
             LoggedAppUser user = new LoggedAppUser(authentication.getName(), activeAppUsers);
             session.setAttribute("user", user);
 
-            response.sendRedirect("/home");
+            response.sendRedirect("/");
         }
 
     }

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class AppFriendsService {
@@ -28,5 +30,18 @@ public class AppFriendsService {
 
         repository.save(new AppFriends(firstUser.getId(), secondUser.getId()));
         repository.save(new AppFriends(secondUser.getId(), firstUser.getId()));
+    }
+
+    public List<AppUser> getFriends(String username) {
+        AppUser user = userService.findAppUserByUsername(username);
+        List<AppFriends> all = repository.findAll();
+        List<AppUser> friends = new ArrayList<>();
+        for (AppFriends f : all) {
+            if (f.getUserId() == user.getId()) {
+                friends.add(userService.findAppUserById(f.getFriendId()));
+            }
+        }
+
+        return friends;
     }
 }
