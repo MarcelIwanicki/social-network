@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="css/welcome.css">
-    <link rel="stylesheet" type="text/css" href="css/welcome-media.css">
 
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -29,9 +28,9 @@
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+          <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="#">Info</a>
+            <a class="dropdown-item" href="#">Profile</a>
             <a class="dropdown-item" href="#">Customize</a>
             <a class="dropdown-item" href="#">Log out</a>
           </div>
@@ -50,22 +49,22 @@
   <main role="main" class="container bg-1">
     <div class="row">
       <div class="col-sm-2 buttons-sidebar">
-        <button type="button" class="w-100 ml-auto mt-5 row btn">
+        <a class="w-100 ml-auto mt-5 row btn" th:href="'/profile/' + ${appUser?.username}">
           <img src="img/user.svg" width="30px" height="30px">
             <p th:text="${appUser?.username}"></p>
-        </button>
+        </a>
 
         <div class="w-100 ml-auto mb-5 row btn-group-vertical">
-          <button type="button" class="btn btn-outline-primary">Account</button>
-          <button type="button" class="btn btn-outline-primary">Friends</button>
-          <button type="button" class="btn btn-outline-primary">Other users</button>
+          <a class="btn btn-outline-primary" th:href="'/profile/' + ${appUser?.username}">Profile</a>
+          <a class="btn btn-outline-primary">Friends</a>
+          <a class="btn btn-outline-primary">Other users</a>
         </div>
         <div class="w-100 ml-auto mb-5 row btn-group-vertical">
-          <button type="button" class="btn btn-outline-dark">Groups</button>
-          <button type="button" class="btn btn-outline-dark">All posts</button>
-          <button type="button" class="btn btn-outline-dark">Chats</button>
-          <button type="button" class="btn btn-outline-dark">Settings</button>
-          <button type="button" class="btn btn-outline-dark">About project</button>
+          <a class="btn btn-outline-dark">Groups</a>
+          <a class="btn btn-outline-dark">All posts</a>
+          <a class="btn btn-outline-dark">Chats</a>
+          <a class="btn btn-outline-dark">Settings</a>
+          <a class="btn btn-outline-dark">About project</a>
 
         </div>
       </div>
@@ -94,7 +93,7 @@
       </div>
 
       <div class="list-group">
-        <a href="#" class="mb-3 list-group-item list-group-item-action flex-column align-items-start">
+        <a href="#" class="post-item mb-3 list-group-item list-group-item-action flex-column align-items-start">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">Username goes here</h5>
             <small>3 days ago</small>
@@ -104,7 +103,7 @@
           <small>Post id</small>
         </a>
 
-        <a href="#" class="mb-3 list-group-item list-group-item-action flex-column align-items-start">
+        <a href="#" class="post-item mb-3 list-group-item list-group-item-action flex-column align-items-start">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">Username goes here</h5>
             <small>3 days ago</small>

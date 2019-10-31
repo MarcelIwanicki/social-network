@@ -1,5 +1,7 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
 body {
-  background: #f2f2f2 !important;
+  background: #f0f0f0 !important;
+  font-family: 'Lato', 'sans-serif';
 }
 
 #navigation {
@@ -61,4 +63,8 @@ input[type="file"] {
 
 .label-image-upload {
   cursor: pointer;
+}
+
+.post-item:hover {
+  background-color: #f0f0f0 !important;
 }

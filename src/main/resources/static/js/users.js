@@ -22,7 +22,7 @@ async function setAllUsersContent() {
 
         for (let i = 0; i < allUsersData.length; i++) {
             const li = createElementFromHTML(
-                '<button type="button" class="row mt-1 btn btn-light btn-lg btn-block btn-active-user"><img src="img/user.svg" width="20px" height="20px"> '+ allUsersData[i] + '</button>'
+                '<a class="row mt-1 btn btn-light btn-lg btn-block btn-active-user" href="/profile/' + allUsersData[i] +'"><img src="/img/user.svg" width="20px" height="20px"> '+ allUsersData[i] + '</a>'
             );
 
             activeUsersFragment.appendChild(li);
