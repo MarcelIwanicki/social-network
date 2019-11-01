@@ -1,10 +1,7 @@
 package com.sharing.overload.cmd;
 
 import com.sharing.overload.entity.AppPost;
-import com.sharing.overload.service.AppFriendsService;
-import com.sharing.overload.service.AppPostService;
-import com.sharing.overload.service.AppUserBoardService;
-import com.sharing.overload.service.AppUserService;
+import com.sharing.overload.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

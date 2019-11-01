@@ -1,5 +1,5 @@
 // fetch all users from REST API and set HTML content
-const allUsersUrl = "http://" + window.location.hostname + ":" + window.location.port + "/rest/users/logged-in";
+const allUsersUrl = "/rest/users/logged-in";
 const activeUsersContainer = document.getElementById('active-users-list');
 const activeUsersFragment = document.createDocumentFragment();
 

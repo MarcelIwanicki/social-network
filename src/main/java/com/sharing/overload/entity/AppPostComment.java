@@ -25,10 +25,14 @@ public class AppPostComment {
     private long appPostId;
 
     @Getter @Setter
+    private String username;
+
+    @Getter @Setter
     private String content;
 
-    public AppPostComment(long appPostId, String content) {
+    public AppPostComment(long appPostId, String username, String content) {
         this.appPostId = appPostId;
+        this.username = username;
         this.content = content;
     }
 }

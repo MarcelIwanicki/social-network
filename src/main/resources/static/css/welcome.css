@@ -4,6 +4,10 @@ body {
   font-family: 'Lato', 'sans-serif';
 }
 
+html {
+  overflow-x: hidden;
+}
+
 #navigation {
     background-color: rgb(59,89,152) !important;
 }
@@ -61,7 +65,8 @@ input[type="file"] {
     display: none;
 }
 
-.label-image-upload {
+.custom-file {
+
   cursor: pointer;
 }
 
