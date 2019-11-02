@@ -2,8 +2,10 @@ package com.sharing.overload.controller;
 
 import com.sharing.overload.entity.AppPost;
 import com.sharing.overload.entity.AppPostComment;
+import com.sharing.overload.entity.AppUser;
 import com.sharing.overload.service.AppPostCommentService;
 import com.sharing.overload.service.AppPostService;
+import com.sharing.overload.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -19,6 +21,9 @@ import java.util.List;
 public class AppPostController {
 
     @Autowired
+    private AppUserService appUserService;
+
+    @Autowired
     private AppPostService appPostService;
 
     @Autowired
@@ -30,6 +35,8 @@ public class AppPostController {
     public String getPost(@PathVariable long id, Model model) {
         this.postId = id;
 
+        addCurrentUserToModel(model);
+
         AppPost appPost = appPostService.findAppPostById(id);
         model.addAttribute("appPost", appPost);
 
@@ -39,6 +46,16 @@ public class AppPostController {
         model.addAttribute("newComment", new AppPostComment());
 
         return "post";
+    }
+
+    private void addCurrentUserToModel(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            String currentUserName = authentication.getName();
+            AppUser appUser = appUserService.findByUsername(currentUserName);
+
+            model.addAttribute("appUser", appUser);
+        }
     }
 
     @PostMapping("/submit-comment")

@@ -25,18 +25,18 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" th:href="'/profile/' + ${appUser?.username}">Profile</a>
             <a class="dropdown-item" href="#">Customize</a>
-            <a class="dropdown-item" href="#">Log out</a>
+            <a class="dropdown-item" href="/logout">Log out</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Create post</a>
+          <a class="nav-link" href="/">Create post</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -56,7 +56,7 @@
 
         <div class="w-100 ml-auto mb-5 row btn-group-vertical">
           <a class="btn btn-outline-primary" th:href="'/profile/' + ${appUser?.username}">Profile</a>
-          <a class="btn btn-outline-primary">Friends</a>
+          <a class="btn btn-outline-primary" th:href="'/friends/' + ${appUser?.username}">Friends</a>
           <a class="btn btn-outline-primary">Other users</a>
         </div>
         <div class="w-100 ml-auto mb-5 row btn-group-vertical">
@@ -123,7 +123,6 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
   <!-- BOOTSTRAP -->
-  <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 
   <script type="text/javascript" src="js/users.js"></script>
