@@ -1,6 +1,7 @@
 package com.sharing.overload.controller;
 
 import com.sharing.overload.entity.AppPost;
+import com.sharing.overload.entity.AppPostComment;
 import com.sharing.overload.entity.AppUser;
 import com.sharing.overload.service.AppFriendsService;
 import com.sharing.overload.service.AppPostService;

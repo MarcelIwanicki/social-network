@@ -16,4 +16,8 @@ public class AppPostCommentService {
     public List<AppPostComment> findAllByAppPostId(long id) {
         return repository.findAllByAppPostId(id);
     }
+
+    public void save(AppPostComment comment) {
+        repository.save(comment);
+    }
 }
