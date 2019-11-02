@@ -80,38 +80,22 @@
 
       <div class="mb-3 list-group-item flex-column align-items-start">
         <h5>Create post</h5>
-        <hr>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        <div class="row mt-1">
-          <div class="col-sm-6"></div>
-          <div class="col-sm-6 row">
-            <label for="image-upload" class="label-image-upload col-sm-8 btn btn-light"><img src="img/picture.svg" width="40px" height="40px"> Upload image</label>
-            <input id="image-upload" type="file" class="form-control-file col-sm-8 btn btn-light">
-            <button type="button" class="col-sm-4 btn btn-primary">Post</button>
+        <form class="post-form input-group mb-3" th:action="@{/submit-post}" th:object="${appPost}" method="post" enctype="multipart/form-data">
+          <div class="input-group">
+            <textarea th:field="*{content}" class="form-control" aria-label="Content"></textarea>
           </div>
-        </div>
+          <hr>
+          <div class="ml-auto mr-auto row input-group">
+            <label for="file" class="custom-file"><span class="btn btn-light btn-block">
+              <img src="/img/picture.svg" width="20px" height="20px">Choose image
+            </span></label>
+            <input id="file" type="file" name="file" class="col-sm-8 image-upload form-control" accept="image/*">
+            <button class="col-sm-4 btn btn-primary submit-button" type="submit" >PUBLISH</button>
+          </div>
+        </form>
       </div>
 
-      <div class="list-group">
-        <a href="#" class="post-item mb-3 list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Username goes here</h5>
-            <small>3 days ago</small>
-          </div>
-          <p class="mb-1">Content goes here</p>
-          <img src="img/breathtaking.jpg" class="row ml-auto mr-auto w-75 mw-100" alt=" ">
-          <small>Post id</small>
-        </a>
-
-        <a href="#" class="post-item mb-3 list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Username goes here</h5>
-            <small>3 days ago</small>
-          </div>
-          <p class="mb-1">Content goes here</p>
-          <img src="img/mark.png" class="row ml-auto mr-auto w-75 mw-100" alt=" ">
-          <small>Post id</small>
-        </a>
+      <div id="posts-container" class="list-group">
       </div>
       </div>
 
@@ -143,5 +127,10 @@
   <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 
   <script type="text/javascript" src="js/users.js"></script>
+  <script th:inline="javascript">
+    const PROFILE_NAME = /*[[${appUser?.username}]]*/ "";
+    const POSTS_URL = "/rest/posts/friends/" + PROFILE_NAME;
+  </script>
+  <script type="text/javascript" src="js/posts.js"></script>
 
 </body>
