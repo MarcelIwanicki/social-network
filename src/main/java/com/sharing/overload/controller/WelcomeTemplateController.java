@@ -64,6 +64,7 @@ public class WelcomeTemplateController {
 
             String currentUserName = authentication.getName();
             appPost.setUsername(currentUserName);
+            appPost.setUnixTime(System.currentTimeMillis() / 1000L);
 
             if (isFileFetched(file)) {
                 setImageToAppPost(appPost, file);

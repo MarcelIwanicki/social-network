@@ -34,9 +34,13 @@ public class AppPost {
     @Getter @Setter
     private byte[] image;
 
-    public AppPost(long boardId, String username, String content) {
+    @Getter @Setter
+    private long unixTime;
+
+    public AppPost(long boardId, String username, String content, long unixTime) {
         this.boardId = boardId;
         this.username = username;
         this.content = content;
+        this.unixTime = unixTime;
     }
 }

@@ -54,7 +54,7 @@
                 <div class="post-item mb-3 list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1" th:text="${appPost?.username}"></h5>
-                        <small>3 days ago</small>
+                        <div id="date"></div>
                     </div>
                     <p class="mb-1" th:text="${appPost?.content}"></p>
                     <div id="image">
@@ -104,6 +104,6 @@
 <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 
 <script type="text/javascript" src="/js/users.js"></script>
-<script type="text/javascript" src="/js/post-image.js"></script>
+<script type="text/javascript" src="/js/post-data.js"></script>
 
 </body>
