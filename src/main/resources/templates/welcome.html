@@ -62,6 +62,7 @@
         <div class="w-100 ml-auto mb-5 row btn-group-vertical">
           <a class="btn btn-outline-dark">Groups</a>
           <a class="btn btn-outline-dark">All posts</a>
+          <a class="btn btn-outline-dark" href="/chat">Global chat</a>
           <a class="btn btn-outline-dark">Chats</a>
           <a class="btn btn-outline-dark">Settings</a>
           <a class="btn btn-outline-dark">About project</a>
@@ -126,9 +127,10 @@
   <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 
   <script type="text/javascript" src="js/users.js"></script>
+
   <script th:inline="javascript">
     const PROFILE_NAME = /*[[${appUser?.username}]]*/ "";
-    const POSTS_URL = "/rest/posts/friends/" + PROFILE_NAME;
+    const POSTS_URL = "/rest/posts/friendsAndUser/" + PROFILE_NAME;
   </script>
   <script type="text/javascript" src="js/posts.js"></script>
 
