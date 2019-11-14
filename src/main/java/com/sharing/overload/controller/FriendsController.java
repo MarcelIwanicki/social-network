@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -27,9 +28,21 @@ public class FriendsController {
 
     @GetMapping("/{username}")
     public String getFriends(@PathVariable String username, Model model) {
+        addCurrentUserToModel(model);
+
         List<AppUser> friends = friendsService.getFriends(username);
         model.addAttribute("friends", friends);
         return "friends";
+    }
+
+    private void addCurrentUserToModel(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            String currentUserName = authentication.getName();
+            AppUser appUser = appUserService.findByUsername(currentUserName);
+
+            model.addAttribute("appUser", appUser);
+        }
     }
 
 

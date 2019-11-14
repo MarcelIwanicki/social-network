@@ -13,11 +13,22 @@ async function setAllUsersContent() {
         postsContainer.innerHTML = '';
 
         for (let i = 0; i < allPostsData.length; i++) {
+            let date = new Date(allPostsData[i].unixTime * 1000),
+                dateValues = [
+                    date.getFullYear(),
+                    date.getMonth()+1,
+                    date.getDate(),
+                    date.getHours(),
+                    date.getMinutes(),
+                ];
+            let yearString = dateValues[0] + '-' + dateValues[1] + '-' + dateValues[2];
+            let timeString = dateValues[3] + ':' + dateValues[4];
+
             const li = createElementFromHTML(
                 '                <a href="/post/'+ allPostsData[i].id +'" class="mt-2 post-item mb-3 list-group-item list-group-item-action flex-column align-items-start">\n' +
                 '                    <div class="d-flex w-100 justify-content-between">\n' +
                 '                        <h5 class="mb-1">'+ allPostsData[i].username +'</h5>\n' +
-                '                        <small>3 days ago</small>\n' +
+                '                        <small>'+yearString +', '+ timeString +'</small>\n' +
                 '                    </div>\n' +
                 '                    <p class="mb-1">'+ allPostsData[i].content +'</p>\n' +
                 '                    <img src="data:image/jpg;base64,' + allPostsData[i].image + '" class="row ml-auto mr-auto w-75 mw-100" alt=" ">\n' +

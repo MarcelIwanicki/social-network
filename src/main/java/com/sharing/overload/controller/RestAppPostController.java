@@ -1,7 +1,6 @@
 package com.sharing.overload.controller;
 
 import com.sharing.overload.entity.AppPost;
-import com.sharing.overload.entity.AppPostComment;
 import com.sharing.overload.entity.AppUser;
 import com.sharing.overload.service.AppFriendsService;
 import com.sharing.overload.service.AppPostService;
@@ -31,6 +30,17 @@ public class RestAppPostController {
 
     @GetMapping("/friends/{username}")
     public List<AppPost> getUsersFriendsPosts(@PathVariable String username) {
+        return getFriendsPosts(username);
+    }
+
+    @GetMapping("/friendsAndUser/{username}")
+    public List<AppPost> getFriendsAndUserPosts(@PathVariable String username) {
+        List<AppPost> result = getFriendsPosts(username);
+        result.addAll(appPostService.findAppPostByUsername(username));
+        return result;
+    }
+
+    private List<AppPost> getFriendsPosts(String username) {
         List<AppPost> result = new ArrayList<>();
 
         List<AppUser> friends = appFriendsService.getFriends(username);

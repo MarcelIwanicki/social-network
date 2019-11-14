@@ -73,3 +73,9 @@ input[type="file"] {
 .post-item:hover {
   background-color: #f0f0f0 !important;
 }
+
+textarea {
+  outline: none !important;
+  -moz-outline-style: none !important;
+  resize: none !important;
+}
