@@ -41,8 +41,8 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="col-sm-8 form-control mr-sm-2" type="text" placeholder="Search for users" aria-label="Search">
-            <button class="col-sm-2 btn btn-outline-light" type="submit"><i class="fa fa-search"></i></button>
+            <input id="searchInput" class="col-sm-8 form-control mr-sm-2" type="text" placeholder="Search for users" aria-label="Search">
+            <div onclick="onSearchClick()" class="col-sm-2 btn btn-outline-light" style="cursor:pointer;"><i class="fa fa-search"></i></div>
         </form>
     </div>
 </nav>
@@ -93,11 +93,13 @@
 <!-- STOMP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 
-<script type="text/javascript" src="js/users.js"></script>
+<script type="text/javascript" src="/js/users.js"></script>
 
 <script th:inline="javascript">
     const USERNAME = /*[[${appUser?.username}]]*/ "";
 </script>
-<script type="text/javascript" src="js/chat.js"></script>
+<script type="text/javascript" src="/js/chat.js"></script>
+
+<script type="text/javascript" src="/js/search.js"></script>
 
 </body>
