@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -45,6 +46,15 @@ public class AppUserService {
         boardService.save(board);
         user.setAppUserBoard(board);
         repository.save(user);
+    }
+
+    public List<AppUser> findAppUserContaining(String searchQuery) {
+        List<AppUser> result = new ArrayList<>();
+        for(AppUser appUser : repository.findAll()) {
+            if(appUser.getUsername().contains(searchQuery))
+                result.add(appUser);
+        }
+        return result;
     }
 
     public AppUser findAppUserByUsername(String userName) {
