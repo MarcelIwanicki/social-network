@@ -44,4 +44,12 @@ public class AppFriendsService {
 
         return friends;
     }
+
+    public AppFriends findAppFriendsByUserId(long id) {
+        return repository.findAppFriendsByUserId(id);
+    }
+
+    public AppFriends findAppFriendsByFriendId(long id) {
+        return repository.findAppFriendsByFriendId(id);
+    }
 }
