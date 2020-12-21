@@ -49,10 +49,6 @@ mvn package
 * [STOMP](https://stomp-js.github.io/stomp-websocket/codo/extra/docs-src/Usage.md.html) - Simple (or Streaming) Text Orientated Messaging Protocol 
 * [Bootstrap](https://getbootstrap.com/) - Bootstrap is an open source toolkit for developing with HTML, CSS, and JS
 
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md)
-
 ## Authors
 
 * **Marcel Iwanicki** - *Initial work* - [MarcelIwanicki](https://github.com/MarcelIwanicki)
