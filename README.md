@@ -1,4 +1,4 @@
-# SharingOverload
+# SocialNetwork
 
 Prototypical social network project
 
@@ -6,7 +6,7 @@ Prototypical social network project
 
 Cloning project:
 ```
-git clone https://github.com/MarcelIwanicki/sharing-overload
+git clone https://github.com/MarcelIwanicki/social-network
 ```
 Launching project on localhost:8080
 ```
